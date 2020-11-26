@@ -50,7 +50,7 @@ export default {
         {
           icon: "mdi-apps",
           title: "DashBoard",
-          to: "/"
+          to: "/Dashboard"
         },
         {
           icon: "mdi-bank-transfer",

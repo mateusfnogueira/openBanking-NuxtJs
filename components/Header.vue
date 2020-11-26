@@ -24,7 +24,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar :clipped-left="clipped" fixed color="rgba(2, 0, 36, 1)" app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
@@ -42,6 +42,12 @@
 
 <script>
 export default {
+  transition(to, from) {
+    if (!from) {
+      return "slide-left";
+    }
+    return +to.query.page < +from.query.page ? "slide-right" : "slide-left";
+  },
   data() {
     return {
       clipped: true,
